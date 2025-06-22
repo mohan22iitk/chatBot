@@ -23,7 +23,7 @@ def load_intents(path="data/Intent.json"):
 def get_response(intent_name, intents):
     for intent in intents:
         if intent["intent"] == intent_name:
-            return random.choice(intent["responses"])  # ← Use random response
+            return random.choice(intent["responses"])
     return "Sorry, I don't understand."
 
 
@@ -71,7 +71,7 @@ def chat_with_evaluation():
     # Evaluation summary
         report = classification_report(y_true, y_pred, zero_division=0, output_dict=True)
 
-        print("\n📊 Evaluation Report (Per-Intent Only):")
+        print("\nEvaluation Report (Per-Intent Only):")
         for intent in report.keys():
           if intent not in {"accuracy", "macro avg", "weighted avg"}:
             precision = report[intent]["precision"]
